@@ -15,15 +15,15 @@ boardApp.controller("NewAnswersController", function($scope, AnswerFactory, User
     $scope.createAnswer = function(){
       var answer = '';
 
-      // if ($scope.newAnswer !=undefined){
-      //   $scope.newAnswer._questionId = $scope.questions._id;
-      //   $scope.newAnswer._userId = $scope.sessionUser.user_id;
-      //   var answer = $scope.newAnswer.answer;
-      // }else{
-      //   $scope.errorsArray = [];
-      //   $scope.errorsArray.push("You must include an answer");
-      //   $location.url("/questions/"+$routeParams.id+"/new_answer");
-      // }
+      if ($scope.newAnswer !=undefined){
+        $scope.newAnswer._questionId = $scope.questions._id;
+        $scope.newAnswer._userId = $scope.sessionUser.user_id;
+        var answer = $scope.newAnswer.answer;
+      }else{
+        $scope.errorsArray = [];
+        $scope.errorsArray.push("You must include an answer");
+        $location.url("/questions/"+$routeParams.id+"/new_answer");
+      }
 
         // if(answer.trim().length<5){
         //    $scope.errorsArray = [];

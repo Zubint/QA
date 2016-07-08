@@ -48,17 +48,16 @@ module.exports = (function(){
         //you need to save the answer_id in questions
         //also
         Question.findOne({_id:req.body._questionId}, function(err, question){
-
+          console.log(req.body._questionId)
               newAnswer.save(function(err){
-                if(err){
-                  console.log(err, " new answer save error");
-                  var errorsArray = [];
-
-                  for (var i in err.errors){
-                    errorsArray.push(err.errors[i].message)
-                  }
-                  res.json({status:false, errors:errorsArray});
-                }else{
+                // if(err){
+                //   console.log(err, " new answer save error");
+                //   var errorsArray = [];
+                //   for (var i in err.errors){
+                //     errorsArray.push(err.errors[i].message)
+                //   }
+                  // res.json({status:false, errors:errorsArray});
+                // }else{
                 question._answerId.push(newAnswer);
                 question.save(function(err){
                   if(err){
@@ -85,7 +84,7 @@ module.exports = (function(){
                 if(err){
                   console.log(err);
                 }
-              }  //end else here
+              // }  //end else here
               })
         })
 
